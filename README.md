@@ -75,57 +75,6 @@ Running vite
 npm run dev
 ```
 
-Access from public not found 404
-```bash
-sudo a2enmod rewrite
-sudo service apache2 restart
-AllowOverride All
-```
-
-## Email Test
-
-MailHog is an email testing tool for developers.
-- Inbox : 202.91.14.2:8025(http://202.91.14.2:8025)
-- SMTP : 202.91.14.2:8125
-
-## Integrate a Template
-- Unzip in resource/template/name_template
-- Add base css to resources/css/app.css
-- Make main.js and add base js to resources/js/main.js (for production, see example)
-- Make main-dev.js and add base js to resources/js/main-dev.js (for dev, see example)
-- Edit vite.config.js
-
-## Make API Documentation
-### Swagger UI
-- Manual write yaml/json
-> - Edit resource/js/swagger.js
-> - change url of json/yaml
-- Using Postman Collection JSON
-> - export collection to json
-> - convert postman json to openapi json/yaml using [apimatic.io](http://apimatic.io) (Login / Signup Free)
-> - Transform API
-> - Convert and download
-> - do as manual write
-
-## VS Code Extension
-- code --list-extensions | xargs -L 1 echo code --install-extension (UNIX)
-- code --list-extensions | % { "code --install-extension $_" } (Windows)
-
-> - code --install-extension ahinkle.laravel-model-snippets
-> - code --install-extension amiralizadeh9480.laravel-extra-intellisense
-> - code --install-extension austenc.laravel-blade-spacer
-> - code --install-extension bmewburn.vscode-intelephense-client
-> - code --install-extension calebporzio.better-phpunit
-> - code --install-extension codingyu.laravel-goto-view
-> - code --install-extension formulahendry.auto-close-tag
-> - code --install-extension MehediDracula.php-namespace-resolver
-> - code --install-extension ms-vscode.sublime-keybindings
-> - code --install-extension neilbrayfield.php-docblocker
-> - code --install-extension onecentlin.laravel-blade
-> - code --install-extension onecentlin.laravel5-snippets
-> - code --install-extension SonarSource.sonarlint-vscode
-> - code --install-extension Codeium.codeium
-
 ## Usefull Links
 
 - [Laravel 10 Documentations](https://laravel.com/docs/10.x/)
