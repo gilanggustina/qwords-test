@@ -1,65 +1,164 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## Table Of Contents
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+[[_TOC_]]
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Requirements
+- Laravel 10.x (PHP 8.1)
+- NodeJS > 14
+- Composer
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## How to install
 
-## Learning Laravel
+### Clone Repository
+open your terminal, go to the directory that you will install this project, then run the following command:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+```bash
+git clone https://github.com/gilanggustina/qwords-test.git
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+cd qwords-test 
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Install packages
+Install vendor using composer
 
-## Laravel Sponsors
+```bash
+composer update
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Install node module using npm
 
-### Premium Partners
+```bash
+npm install
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### Configure .env
+Copy .env.example file
 
-## Contributing
+```bash
+cp .env.example .env
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Then run the following command :
 
-## Code of Conduct
+```php
+php artisan key:generate
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Migrate Data
+create an empty database with mysql 8.x version, then setup that fresh db at your .env file, then run the following command to generate all tables and seeding dummy data:
 
-## Security Vulnerabilities
+```php
+php artisan migrate:fresh --seed
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Running Application
+To serve the laravel app, you need to run the following command in the project director (This will serve your app, and give you an adress with port number 8000 or etc)
+- **Note: You need run the following command into new terminal tab**
+
+```php
+php artisan serve
+```
+
+Running vite
+- **Note: You need run the following command into new terminal tab**
+
+```bash
+npm run dev
+```
+
+Access from public not found 404
+```bash
+sudo a2enmod rewrite
+sudo service apache2 restart
+AllowOverride All
+```
+
+## Email Test
+
+MailHog is an email testing tool for developers.
+- Inbox : 202.91.14.2:8025(http://202.91.14.2:8025)
+- SMTP : 202.91.14.2:8125
+
+## Integrate a Template
+- Unzip in resource/template/name_template
+- Add base css to resources/css/app.css
+- Make main.js and add base js to resources/js/main.js (for production, see example)
+- Make main-dev.js and add base js to resources/js/main-dev.js (for dev, see example)
+- Edit vite.config.js
+
+## Make API Documentation
+### Swagger UI
+- Manual write yaml/json
+> - Edit resource/js/swagger.js
+> - change url of json/yaml
+- Using Postman Collection JSON
+> - export collection to json
+> - convert postman json to openapi json/yaml using [apimatic.io](http://apimatic.io) (Login / Signup Free)
+> - Transform API
+> - Convert and download
+> - do as manual write
+
+## VS Code Extension
+- code --list-extensions | xargs -L 1 echo code --install-extension (UNIX)
+- code --list-extensions | % { "code --install-extension $_" } (Windows)
+
+> - code --install-extension ahinkle.laravel-model-snippets
+> - code --install-extension amiralizadeh9480.laravel-extra-intellisense
+> - code --install-extension austenc.laravel-blade-spacer
+> - code --install-extension bmewburn.vscode-intelephense-client
+> - code --install-extension calebporzio.better-phpunit
+> - code --install-extension codingyu.laravel-goto-view
+> - code --install-extension formulahendry.auto-close-tag
+> - code --install-extension MehediDracula.php-namespace-resolver
+> - code --install-extension ms-vscode.sublime-keybindings
+> - code --install-extension neilbrayfield.php-docblocker
+> - code --install-extension onecentlin.laravel-blade
+> - code --install-extension onecentlin.laravel5-snippets
+> - code --install-extension SonarSource.sonarlint-vscode
+> - code --install-extension Codeium.codeium
+
+## Usefull Links
+
+- [Laravel 10 Documentations](https://laravel.com/docs/10.x/)
+- [Spatie Laravel Permission](https://spatie.be/docs/laravel-permission/v5/introduction/)
+- [AdminLTE](https://adminlte.io/)
+- [Check Coding Standard](https://github.com/squizlabs/PHP_CodeSniffer)
+- [PHP code style fixer - Laravel Pint](https://laravel.com/docs/9.x/pint)
+- [Package yang berisi data Provinsi, Kabupaten/Kota, dan Kecamatan/Desa di seluruh Indonesia](https://github.com/laravolt/indonesia)
+
+## FAQ
+#### Apakah itu laravel pint?
+Alat untuk merapihkan penulisan PHP, cara penggunaan ./vendor/bin/pint
+#### Bagaimana cara mengubah template?
+Template berada di folder storage/app.public/. Daftarkan url js dan css ke table preference. ubah THEME="default" di environment (.env)
+#### Arsitektur apa yang digunakan?
+Minimal dengan arsitektur MVC, bisa juga menambahkan service pattern, dan memungkinkan juga memakai repository jika diperlukan.
+#### Apakah wajib mengunakan service dan repository ini?
+Penggunaan service dan repository adalah optional.
+#### Kapan penggunaan service pattern itu?
+Penggunaan service pattern ketika banyak logic yang bisa dipanggil ulang.
+#### Apa isi dari service pattern itu?
+Isi service pattern adalah logic.
+#### Kapan penggunaan repository pattern itu?
+Penggunaan repository pattern ketika mengakses data selain database atau ketika query manual.
+#### Apa isi dari repository pattern itu?
+Isi repository pattern adalah query bisa juga logic untuk ambil data selain database semisal dari API.
+#### Apakah boleh memanggil model di service?
+Boleh
+#### Apakah boleh memanggil model di repository?
+Boleh
+#### Bisakah service menggunakan service lainnya?
+Bisa
+
 
 ## License
 
