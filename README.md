@@ -79,10 +79,8 @@ npm run dev
 
 - [Laravel 10 Documentations](https://laravel.com/docs/10.x/)
 - [Spatie Laravel Permission](https://spatie.be/docs/laravel-permission/v5/introduction/)
-- [AdminLTE](https://adminlte.io/)
 - [Check Coding Standard](https://github.com/squizlabs/PHP_CodeSniffer)
 - [PHP code style fixer - Laravel Pint](https://laravel.com/docs/9.x/pint)
-- [Package yang berisi data Provinsi, Kabupaten/Kota, dan Kecamatan/Desa di seluruh Indonesia](https://github.com/laravolt/indonesia)
 
 
 ## License
