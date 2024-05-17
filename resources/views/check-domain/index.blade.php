@@ -45,7 +45,6 @@
       event.preventDefault();
       var data = new FormData(this);
       const domainRegex = /^(?:[-A-Za-z0-9]+\.)+[A-Za-z]{2,6}$/
-      alert(domainRegex.test(data.get('in_name_domain')))
       if(domainRegex.test(data.get('in_name_domain'))){
         axios.post(`{!! route('search-domain') !!}`,data)
         .then(function(response){
