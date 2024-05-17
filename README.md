@@ -84,30 +84,6 @@ npm run dev
 - [PHP code style fixer - Laravel Pint](https://laravel.com/docs/9.x/pint)
 - [Package yang berisi data Provinsi, Kabupaten/Kota, dan Kecamatan/Desa di seluruh Indonesia](https://github.com/laravolt/indonesia)
 
-## FAQ
-#### Apakah itu laravel pint?
-Alat untuk merapihkan penulisan PHP, cara penggunaan ./vendor/bin/pint
-#### Bagaimana cara mengubah template?
-Template berada di folder storage/app.public/. Daftarkan url js dan css ke table preference. ubah THEME="default" di environment (.env)
-#### Arsitektur apa yang digunakan?
-Minimal dengan arsitektur MVC, bisa juga menambahkan service pattern, dan memungkinkan juga memakai repository jika diperlukan.
-#### Apakah wajib mengunakan service dan repository ini?
-Penggunaan service dan repository adalah optional.
-#### Kapan penggunaan service pattern itu?
-Penggunaan service pattern ketika banyak logic yang bisa dipanggil ulang.
-#### Apa isi dari service pattern itu?
-Isi service pattern adalah logic.
-#### Kapan penggunaan repository pattern itu?
-Penggunaan repository pattern ketika mengakses data selain database atau ketika query manual.
-#### Apa isi dari repository pattern itu?
-Isi repository pattern adalah query bisa juga logic untuk ambil data selain database semisal dari API.
-#### Apakah boleh memanggil model di service?
-Boleh
-#### Apakah boleh memanggil model di repository?
-Boleh
-#### Bisakah service menggunakan service lainnya?
-Bisa
-
 
 ## License
 
